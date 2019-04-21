@@ -1,0 +1,19 @@
+
+=== Booting the Server
+
+To boot the {project_name} server, first run the `aerobase-ctl` configuration script:
+
+.Linux/Unix
+[source,bash,subs=+attributes]
+----
+$ aerobase-ctl reconfigure
+$ aerobase-ctl start
+----
+
+.Windows
+[source,bash,subs=+attributes]
+----
+> aerobase-ctl.bat reconfigure
+----
+
+NOTE: Enabling HTTPS will require additional configuration to specify the certificates.

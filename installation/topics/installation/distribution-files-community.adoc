@@ -1,0 +1,4 @@
+
+=== Installing Distribution Files
+
+Please see the <<../gsg/index.html#_install-boot,Installing Distribution Files>> section of this guide for more information.

@@ -1,0 +1,12 @@
+
+=== Logging in to the Admin Console
+
+After you create the initial admin account, use the following steps to log in to the admin console:
+
+. Click the *Administration Console* link on the *Welcome* page or go directly to the console URL http://localhost/auth/admin/aerobase/console
+
+. Type the default username and password *(admin/123)*.
++
+.Admin Console
+image:{project_images}/admin-console.png[]
+

@@ -1,0 +1,5 @@
+include::topics/overview.adoc[]
+include::topics/first-boot.adoc[]
+include::topics/first-boot/distribution-files-community.adoc[]
+include::topics/first-boot/boot.adoc[]
+include::topics/first-boot/admin-console.adoc[]

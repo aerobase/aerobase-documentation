@@ -1,0 +1,12 @@
+:toc:
+:toclevels: 3
+:numbered:
+:linkattrs:
+
+include::topics/templates/document-attributes-community.adoc[]
+
+:installation_and_configuration_guide:
+
+= {installguide_name}
+
+include::topics.adoc[]

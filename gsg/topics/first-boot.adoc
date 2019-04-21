@@ -1,0 +1,6 @@
+[[_install-boot]]
+
+== Installing and Booting
+
+This section describes how to boot a {project_name} server and log in to the {project_name} admin console.
+Aerobase takes just 2 minutes to install and is packaged in the popular deb / rpm / msi / docker formats. 

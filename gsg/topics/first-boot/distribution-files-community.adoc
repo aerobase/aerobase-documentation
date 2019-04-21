@@ -1,0 +1,29 @@
+
+=== Installing Distribution Files
+
+Download the {project_name} Server:
+
+* *aerobase-{project_version}.[deb|rpm|msi]*
+* *aerobase-iam-{project_version}.[deb|rpm]*
+
+NOTE: These files can be downloaded from https://www.aerobase.io/downloads[Aerobase downloads].
+
+
+==== Install packages
+===== Linux/Unix
+[source,bash,subs=+attributes]
+----
+$ yum install java-1.8.0-openjdk
+$ yum install aerobase-{project_version}.el7.x86_64.rpm aerobase-iam-{project_version}.el7.x86_64.rpm
+
+or
+
+$ apt-get install openjdk-8-jdk
+$ apt-get install aerobase_{project_version}_xenial.deb aerobase-iam_{project_version}_xenial.deb
+----
+
+===== Windows
+[source,bash,subs=+attributes]
+----
+> msiexec.exe aerobase-openjdk-{project_version}-x64.msi 
+----

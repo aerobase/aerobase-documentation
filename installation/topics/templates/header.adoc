@@ -1,0 +1,3 @@
+[sidebar,role="page-links"]
+link:https://github.com/aerobase/aerobase-documentation/blob/master/{include_filename}[Edit this section, window="_blank"]
+link:https://aerobase.atlassian.net/projects/AEROBASE/issues/AEROBASE-104?filter=allissues[Report an issue, window="_blank"]
