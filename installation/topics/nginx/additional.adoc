@@ -1,0 +1,31 @@
+
+=== Additional Config
+
+==== Adding additional Directives to nginx config
+
+By default, {project_name} config file contains global nginx directives, e.g: worker_processes, events, etc. 
+You can pugin additional directives to {project_name} server by setting a value to custom_nginx_config in `/etc/aerobase/aerobase.rb`; as it does in the server block below.
+
+[source,ruby,subs="attributes+"]
+----
+nginx['custom_nginx_config'] = "include /var/opt/aerobase/nginx/conf.d/additional-nginx-directives.import;"
+----
+
+==== Adding additional Directives to Http Blocks
+
+By default, {project_name} http config block contains an include directive which tells NGINX where additional website configuration files are located. 
+You can pugin additional Directives to {project_name} Http by setting a value to custom_http_config in `/etc/aerobase/aerobase.rb`; as it does in the server block below.
+
+[source,ruby,subs="attributes+"]
+----
+nginx['custom_http_config'] = "include /var/opt/aerobase/nginx/conf.d/additional-http-directives.import;"
+----
+
+==== Adding additional Location Blocks to Aerobase
+The location setting lets you configure how NGINX will respond to requests for resources within the server. 
+You can pugin additional locations file to {project_name} server by setting a value to custom_aerobase_config in `/etc/aerobase/aerobase.rb`; as it does in the server block below.
+
+[source,ruby,subs="attributes+"]
+----
+nginx['custom_aerobase_config'] = "include /var/opt/aerobase/nginx/conf.d/additional-location.import;"
+----

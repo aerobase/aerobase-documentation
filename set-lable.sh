@@ -36,11 +36,11 @@ sed -i '/ifeval/ d' server_development/topics.adoc
 
 # Remove unused sections
 # TODO - parameter this section and execute twice (one before maven install and once ofter)
-#rm -rf release_notes
-#rm -rf upgrading
-#rm -rf openshift
-#sed -i '/upgrading/ d' pom.xml
-#sed -i '/release_notes/ d' pom.xml
-#sed -i '/openshift/ d' pom.xml
+rm -rf release_notes
+rm -rf upgrading
+rm -rf openshift
+sed -i '/upgrading/ d' pom.xml
+sed -i '/release_notes/ d' pom.xml
+sed -i '/openshift/ d' pom.xml
 
 echo "successfully relabel to aerobase"

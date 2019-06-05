@@ -1,0 +1,9 @@
+
+=== Disable theme caching
+
+Add or edit the following line in `/etc/aerobase/aerobase.rb`:
+
+[source,ruby,subs="attributes+"]
+----
+keycloak_server['theme_cache'] = false
+----

@@ -1,5 +1,8 @@
 include::topics/overview.adoc[]
 include::topics/first-boot.adoc[]
 include::topics/first-boot/distribution-files-community.adoc[]
+include::topics/first-boot/external.adoc[]
 include::topics/first-boot/boot.adoc[]
 include::topics/first-boot/admin-console.adoc[]
+include::topics/upgrade.adoc[]
+include::topics/docker.adoc[]

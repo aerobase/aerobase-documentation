@@ -1,0 +1,24 @@
+
+=== {project_name} Delayed start
+
+==== Linux delayed start
+
+If you want to prevent {project_name} services (Aerobase-server, NGINX, PostgresSQL) from starting before a given filesystem is mounted, add the following to `/etc/aerobase/aerobase.rb`:
+
+[source,ruby,subs="attributes+"]
+----
+# wait for /var/opt/aerobase to be mounted
+high_availability['mountpoint'] = '/var/opt/aerobase'
+----
+
+==== Windows delayed start
+
+[source,ruby,subs="attributes+"]
+----
+# Delayed start service on windows
+aerobase_server['delayed_start'] = false
+
+postgresql['delayed_start'] = false
+
+nginx['delayed_start'] = false
+----

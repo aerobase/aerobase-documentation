@@ -1,0 +1,10 @@
+
+=== Rename {project_name} services
+
+{project_name} service names can be labled with your company name, Add or edit the following line in `C:\Aerobase\Configuration\aerobase.rb`
+
+[source,ruby,subs="attributes+"]
+----
+global['srv_label'] = "YOURCOMPNAME"
+----
+NOTE: Service renaming is supported only for Windows installation.

@@ -1,0 +1,13 @@
+
+=== Configuring the external URL
+
+In order for Aerobase to properly validete oauth requests it needs to know the URL under which it is reached by your users, e.g. 
+http://idp.aerobase.com. Add or edit the following line in `/etc/aerobase/aerobase.rb`:
+
+[source,ruby,subs="attributes+"]
+----
+external_url "http://idp.aerobase.com"
+----
+
+WARNING: Any changes you make to this file while the server is running will not take effect.
+         Run `sudo aerobase-ctl reconfigure` for the change to take effect.

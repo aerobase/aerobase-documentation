@@ -1,0 +1,11 @@
+
+=== Load additional realm
+Place your custom realm.json file under /etc/aerobase/
+
+In order for {project_name} to load custom realm it needs to know the PATH under which it is located, e.g. `/etc/aerobase/your-realm.json`. 
+Add or edit the following line in `/etc/aerobase/aerobase.rb`:
+
+[source,ruby,subs="attributes+"]
+----
+keycloak_server['realm_files'] = ['/etc/aerobase/your-realm.json']
+----

@@ -1,0 +1,23 @@
+
+== Updating {project_name}
+
+Depending on the installation method and your {project_name} version, there are multiple update guides.
+
+There are currently 2 official ways to install {project_name}:
+
+. Omnibus packages
+
+. Docker installation
+
+=== Omnibus Package Upgrade
+
+WARNING: Make sure to backup your database before starting any upgrade process
+
+. Stop aerobase services `aerobase-ctl stop`
+
+. Install new package <<_installing-distribution-files,Distribution Files>>
+
+. run `aerobase-ctl reconfigure`
+
+. Start all services `aerobase-ctl start`
+

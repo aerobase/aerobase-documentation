@@ -4,41 +4,52 @@
 
 Standalone operating mode is only useful when you want to run one, and only one {project_name} server instance.
 It is not usable for clustered deployments and all caches are non-distributed and local-only.  It is not recommended that
-you use standalone mode in production as you will have a single point of failure.  If your standalone mode server goes down,
-users will not be able to log in.  This mode is really only useful to test drive and play with the features of {project_name}
+you use standalone mode in production as you will have a single point of failure. If your standalone mode server goes down,
+users will not be able to log in. This mode is really only useful to test drive and play with the features of {project_name}
 
-==== Standalone Boot Script
+==== Standalone Boot
 
-When running the server in standalone mode, there is a specific script you need to run to boot the server depending on your
-operating system.  These scripts live in the _bin/_ directory of the server distribution.
+You can start, stop or restart Aerobase Server and all of its components with the following commands.
+These scripts live in the bin/ directory of the server distribution.
 
-.Standalone Boot Scripts
-image:{project_images}/standalone-boot-files.png[]
+.aerobase-ctl 
+image:{project_images}/bin-files.png[]
 
 To boot the server:
 
 .Linux/Unix
 [source]
 ----
-$ .../bin/standalone.sh
+$ sudo aerobase-ctl start
 ----
 
 .Windows
 [source]
 ----
-> ...\bin\standalone.bat
+> aerobase-ctl.bat start
 ----
 
-==== Standalone Configuration
+==== {project_name} Configuration
 
 The bulk of this guide walks you through how to configure infrastructure level aspects of {project_name}.  These
 aspects are configured in a configuration file that is specific to the application server that {project_name} is a
-derivative of.  In the standalone operation mode, this file lives in _.../standalone/configuration/standalone.xml_.  This file
+derivative of. In the standalone operation mode, this file lives in `/etc/aerobase/aerobase.rb`.  This file
 is also used to configure non-infrastructure level things that are specific to {project_name} components.
 
-.Standalone Config File
-image:{project_images}/standalone-config-file.png[]
+.{project_name} Config File
+image:{project_images}/config-file.png[]
 
-WARNING: Any changes you make to this file while the server is running will not take effect and may even be overwritten
-      by the server.  Instead use the command line scripting or the web console of {appserver_name}.  See
-      the link:{appserver_admindoc_link}[_{appserver_admindoc_name}_] for more information.
+WARNING: Any changes you make to this file while the server is running will not take effect.
+         Run 'sudo aerobase-ctl reconfigure' for the change to take effect.
+
+.Linux/Unix
+[source]
+----
+$ sudo aerobase-ctl reconfigure
+----
+
+.Windows
+[source]
+----
+> aerobase-ctl.bat reconfigure
+----

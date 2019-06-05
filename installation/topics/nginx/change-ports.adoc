@@ -1,0 +1,49 @@
+
+=== Change The Default Port
+
+If you need to use an HTTPS port other than the default (443), just specify it as part of the external_url.
+
+[source,ruby,subs="attributes+"]
+----
+external_url "https://aerobase.example.com:2443"
+----
+
+==== Change SSL certificate locations
+
+To set the location of ssl certificates create /etc/aerobase/ssl directory, place the .crt and .key files in the directory and specify the following configuration:
+
+[source,ruby,subs="attributes+"]
+----
+nginx['ssl_certificate'] = "/etc/aerobase/ssl/other.example.crt"
+nginx['ssl_certificate_key'] = "/etc/aerobase/ssl/other.example.com.key"
+----
+
+==== Setting the listen addresses
+
+By default NGINX will accept incoming connections on all local IPv4 addresses. 
+You can change the list of addresses in `/etc/aerobase/aerobase.rb`.
+
+[source,ruby,subs="attributes+"]
+----
+nginx['listen_addresses'] = ["0.0.0.0", "[::]"] # listen on all IPv4 and IPv6 addresses
+----
+
+==== Setting the NGINX listen port
+By default NGINX will listen on the port specified in external_url or implicitly use the right port (80 for HTTP, 443 for HTTPS). 
+If you are running {project_name} behind a reverse proxy, you may want to override the listen port to something else. For example, to use port 8181: 
+
+[source,ruby,subs="attributes+"]
+----
+nginx['listen_port'] = 8181
+----
+
+==== Using a non-bundled web-server
+
+By default, {project_name} is installed with bundled Nginx. {project_name} allows webserver access through user aerobase-www 
+which resides in the group with the same name. To allow an external webserver access to {project_name}, external webserver user needs to be added aerobase-www group.
+
+To use another web server like Apache or an existing Nginx installation you will have to perform the following steps:
+[source,ruby,subs="attributes+"]
+----
+nginx['enable'] = false
+----

@@ -6,7 +6,7 @@
 :project_versionMvn: 6.0.1
 :project_versionNpm: 6.0.1
 :project_versionDoc: 6.0
-:project_images: keycloak-images
+:project_images: aerobase-images
 :project_doc_base_url: https://www.aerobase.io/docs/{project_versionDoc}
 :project_dirref: KEYCLOAK_HOME
 :project_openshift_product_name: Aerobase for OpenShift

@@ -13,5 +13,3 @@ of things you have to do when setting up a cluster, specifically:
 Picking an operation mode and configuring a shared database have been discussed earlier in this guide.  In this chapter
 we'll discuss setting up a load balancer and supplying a private network.  We'll also discuss some issues that you need
 to be aware of when booting up a host in the cluster.
-
-NOTE:  It is possible to cluster {project_name} without IP Multicast, but this topic is beyond the scope of this guide.  For more information, see link:{appserver_jgroups_link}[JGroups] chapter of the _{appserver_jgroups_name}_.

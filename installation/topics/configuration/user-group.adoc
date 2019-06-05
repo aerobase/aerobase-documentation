@@ -1,0 +1,31 @@
+
+=== Changing user / group
+
+==== Changing the name of the Aerobase user / group
+
+By default, {project_name} uses the user name aerobase for ownership of the {project_name} data itself.
+
+We do not recommend changing the user/group of an existing installation because it can cause unpredictable side-effects. 
+If you still want to do change the user and group, you can do so by adding the following lines to `/etc/aerobase/aerobase.rb`.
+
+[source,ruby,subs="attributes+"]
+----
+user['username'] = "aerobase"
+user['group'] = "aerobase"
+----
+
+==== Specify numeric user and group identifiers
+
+{project_name} creates users for Aerobase-server, PostgreSQL and NGINX. You can specify the numeric identifiers for these users in `/etc/aerobase/aerobase.rb` as follows.
+
+[source,ruby,subs="attributes+"]
+----
+user['uid'] = 1234
+user['gid'] = 1234
+
+postgresql['uid'] = 1235
+postgresql['gid'] = 1235
+
+web_server['uid'] = 1237
+web_server['gid'] = 1237
+----

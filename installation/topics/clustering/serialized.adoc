@@ -8,17 +8,9 @@ A DB lock is used to prevent start actions from conflicting with one another whe
 
 By default, the maximum timeout for this lock is 900 seconds.  If a node is waiting on this lock for more than the timeout
 it will fail to boot.
-Typically you won't need to increase/decrease the default value, but just in case it's possible to configure it in 
-`standalone.xml`, `standalone-ha.xml`, or `domain.xml` file in your distribution.  The location of this file 
-depends on your <<_operating-mode, operating mode>>. 
+Typically you won't need to increase/decrease the default value, but just in case it's possible to configure it in `/etc/aerobase/aerobase.rb`
 
-[source,xml]
+[source,ruby,subs="attributes+"]
 ----
-<spi name="dblock">
-    <provider name="jpa" enabled="true">
-        <properties>
-            <property name="lockWaitTimeout" value="900"/>
-        </properties>
-    </provider>
-</spi>
+keycloak_server['start_timeout'] = "600"
 ----

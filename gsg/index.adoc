@@ -5,7 +5,7 @@
 
 include::topics/templates/document-attributes-community.adoc[]
 
-:getting_started_guide:
+:gsg_guide:
 
 = {gettingstarted_name}
 

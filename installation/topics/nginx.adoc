@@ -1,0 +1,4 @@
+[[_nginx]]
+
+== HTTP/HTTPS Access
+{project_name} comes with its own embedded reverse proxy named NGINX.

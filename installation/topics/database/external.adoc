@@ -1,0 +1,44 @@
+
+=== Connecting to external database
+By default {project_name} reconfigure process will generate SQL Users/Schema/Tables required for runtime.
+If required object is already exists in database, it will be skiped. Therefore it is safe to run reconfigure command multiple times.
+
+NOTE: Configuration username/password are used only during the reconfigure process.
+
+==== Connecting to PostgreSQL
+[source,ruby,subs="attributes+"]
+----
+# Shutdown internal embedded database
+postgresql['enable'] = false
+
+# Point to external database 
+postgresql['server'] = "DATABASE-IP"
+postgresql['username'] = "USER_NAME"
+postgresql['password'] = "PASSWORD"
+----
+
+==== Connecting to MSSQL
+[source,ruby,subs="attributes+"]
+----
+# Shutdown internal embedded database
+postgresql['enable'] = false
+
+# Change adapter type
+aerobase_server['db_adapter'] = "mssql"
+
+# Point to MSSQL host and port (default 1433)
+mssql['server'] = "localhost"
+mssql['port'] = 1433
+mssql['instance'] = nil
+----
+
+NOTE: If both port and instance are specified, port will be preferred.
+
+===== Connecting using Windows Logon
+[source,ruby,subs="attributes+"]
+----
+mssql['logon'] = false
+----
+
+WARNING: Any changes you make to this file while the server is running will not take effect.
+         Run 'sudo aerobase-ctl reconfigure' for the change to take effect.

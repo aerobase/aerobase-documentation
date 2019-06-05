@@ -1,0 +1,10 @@
+
+=== Redirect HTTP to HTTPS
+By default, when you specify an external_url starting with 'https', Nginx will no longer listen for unencrypted HTTP traffic on port 80. 
+If you want to redirect all HTTP traffic to HTTPS you can use the redirect_http_to_https setting.
+
+[source,ruby,subs="attributes+"]
+----
+external_url "https://aerobase.example.com"
+nginx['redirect_http_to_https'] = true
+----

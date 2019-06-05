@@ -7,6 +7,6 @@ Before deploying {project_name} in a production environment you need to decide w
 you are going to use.  Will you run {project_name} within a cluster?  Do you want a centralized way to manage
 your server configurations?  Your choice of operating mode effects how you configure databases, configure caching and even how you boot the server.
 
-TIP: The {project_name} is built on top of the {appserver_name} Application Server.  This guide will only
-     go over the basics for deployment within a specific mode.  If you want specific information on this, a better place
-     to go would be the link:{appserver_admindoc_link}[_{appserver_admindoc_name}_].
+TIP: The {project_name} is built on top of the link:{appserver_caching_link}[_Infinispan_] distributed in-memory key/value data store. Runtime Data is automatically 
+replicated to multiple nodes for fault-tolerance and linear scalability. Replication across multiple data centers is supported.
+This guide will only go over the basics for deployment within a specific mode.

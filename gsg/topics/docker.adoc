@@ -1,0 +1,4 @@
+
+== Installation using Docker
+
+{project_name} provides official Docker images. They are based on the Omnibus package and instructions on how to update them are in a separate document.

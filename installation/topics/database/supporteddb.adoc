@@ -1,0 +1,13 @@
+[[_rdbms-setup-checklist]]
+=== Supported databases
+
+Due to variations in data types and SQL syntax, the following databases are currently supported out of the box. 
+Additional databases as well as enhancements to support new databases are available through {project_name} support site.
+
+. PostgreSQL
+. MySQL
+. MSSQL
+. Oracle 
+
+This chapter will use PostgresSQL for all its examples.  Other databases follow the same steps for installation.
+
