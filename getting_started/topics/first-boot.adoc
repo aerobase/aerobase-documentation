@@ -1,6 +1,0 @@
-[[_install-boot]]
-
-== Installing and Booting
-
-This section describes how to boot a {project_name} server in standalone mode, set up the initial admin user, and log in to the {project_name} admin console.
-

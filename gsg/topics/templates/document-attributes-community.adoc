@@ -2,11 +2,11 @@
 :project_name_full: Aerobase
 :project_community: true
 :project_product: false
-:project_version: 2.2.3-1
+:project_version: 2.3.0
 :project_versionMvn: 2.2.3-1
 :project_versionNpm: 2.2.3-1
 :project_versionDoc: 2.2
-:project_images: keycloak-images
+:project_images: aerobase-images
 :project_doc_base_url: https://www.aerobase.io/docs/{project_versionDoc}
 :project_dirref: KEYCLOAK_HOME
 :project_openshift_product_name: Aerobase for OpenShift

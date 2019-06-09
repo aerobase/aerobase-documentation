@@ -1,12 +1,12 @@
-Keycloak Documentation
+Aerobase Documentation
 ======================
 
 Open Source Identity and Access Management for modern Applications and Services.
 
-For more information about Keycloak visit the [Keycloak homepage](http://keycloak.org) and [Keycloak blog](http://blog.keycloak.org).
+For more information about Aerobase visit the [Aerobase homepage](http://aerobase.io) and [Aerobase blog](http://blog.aerobase.io).
 
 
-Contributing to Keycloak Documentation
+Contributing to Aerobase Documentation
 --------------------------------------
 
 See our [Contributor's Guide](internal_resources/contributing.adoc). The directory also includes a set of templates and other resources to help you get started.
@@ -14,21 +14,21 @@ See our [Contributor's Guide](internal_resources/contributing.adoc). The directo
 If you want to file a bug report or tell us about any other issue with this documentation, you are invited to please use our [issue tracker](https://issues.jboss.org/projects/KEYCLOAK/).
 
 
-Building Keycloak Documentation
+Building Aerobase Documentation
 -------------------------------
 
 Ensure that you have [Maven installed](https://maven.apache.org/).
 
-First, clone the Keycloak Documentation repository:
+First, clone the Aerobase Documentation repository:
 
-    git clone https://github.com/keycloak/keycloak-documentation.git
-    cd keycloak-documentation
+    git clone https://github.com/aerobase/aerobase-documentation.git
+    cd aerobase-documentation
 
 If you are using Windows, you need to run the following command with administrator privilege because this project uses symbolic links:
 
-    git clone -c core.symlinks=true https://github.com/keycloak/keycloak-documentation.git
+    git clone -c core.symlinks=true https://github.com/aerobase/aerobase-documentation.git
 
-To build Keycloak Documentation run:
+To build Aerobase Documentation run:
 
     mvn clean install
 
@@ -42,7 +42,7 @@ You can then view the documentation by opening GUIDE_DIR/target/generated-docs/i
 Building RH-SSO Documentation
 -----------------------------
 
-Keycloak is the basis of [Red Hat Single Sign-On](https://access.redhat.com/products/red-hat-single-sign-on). The same documentation sources are used, but they are built slightly differently.
+Aerobase is the basis of [Aerobase Cloud SSO/IAM](https://cloud.aerobase.io/portal). The same documentation sources are used, but they are built slightly differently.
 
 To build the documentation for RH-SSO run:
 

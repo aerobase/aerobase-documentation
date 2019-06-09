@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.keycloak.documentation</groupId>
+        <groupId>org.aerobase.documentation</groupId>
         <artifactId>documentation-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
@@ -15,49 +15,49 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.keycloak.documentation</groupId>
+            <groupId>org.aerobase.documentation</groupId>
             <artifactId>api-documentation</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.keycloak.documentation</groupId>
+            <groupId>org.aerobase.documentation</groupId>
             <artifactId>authorization-services</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.keycloak.documentation</groupId>
-            <artifactId>getting-started</artifactId>
+            <groupId>org.aerobase.documentation</groupId>
+            <artifactId>gsg</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.keycloak.documentation</groupId>
+            <groupId>org.aerobase.documentation</groupId>
             <artifactId>securing-apps</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.keycloak.documentation</groupId>
+            <groupId>org.aerobase.documentation</groupId>
             <artifactId>server-admin</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.keycloak.documentation</groupId>
+            <groupId>org.aerobase.documentation</groupId>
             <artifactId>server-development</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.keycloak.documentation</groupId>
+            <groupId>org.aerobase.documentation</groupId>
             <artifactId>server-installation</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.keycloak.documentation</groupId>
+            <groupId>org.aerobase.documentation</groupId>
             <artifactId>release-notes</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
@@ -104,16 +104,16 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>copy-getting_started</id>
+                        <id>copy-gsg</id>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}/getting_started/</outputDirectory>
+                            <outputDirectory>${project.build.outputDirectory}/gsg/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>../getting_started/target/generated-docs</directory>
+                                    <directory>../gsg/target/generated-docs</directory>
                                     <include>**/**</include>
                                 </resource>
                             </resources>
@@ -168,16 +168,16 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>copy-server_installation</id>
+                        <id>copy-installation</id>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}/server_installation/</outputDirectory>
+                            <outputDirectory>${project.build.outputDirectory}/installation/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>../server_installation/target/generated-docs</directory>
+                                    <directory>../installation/target/generated-docs</directory>
                                     <include>**/**</include>
                                 </resource>
                             </resources>

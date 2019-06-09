@@ -55,14 +55,14 @@ endif::[]
 :developerguide_actiontoken_name: Action Token SPI
 :developerguide_actiontoken_link: {developerguide_link}#_action_token_spi
 :gettingstarted_name: Getting Started Guide
-:gettingstarted_link: {project_doc_base_url}/getting_started_guide/
+:gettingstarted_link: {project_doc_base_url}/gsg_guide/
 :upgradingguide_name: Upgrading Guide
 :upgradingguide_link: {project_doc_base_url}/upgrading_guide/
 :releasenotes_name: Release Notes
 :releasenotes_link: {project_doc_base_url}/release_notes/
 :openshift_link: {project_doc_base_url}/red_hat_single_sign-on_for_openshift/
 :installguide_name: Server Installation and Configuration Guide
-:installguide_link: {project_doc_base_url}/server_installation_and_configuration_guide/
+:installguide_link: {project_doc_base_url}/installation_and_configuration_guide/
 :installguide_clustering_name: Clustering
 :installguide_clustering_link: {installguide_link}#_clustering
 :installguide_database_name: Database
@@ -71,7 +71,7 @@ endif::[]
 :installguide_disablingcaching_link: {installguide_link}#disabling-caching
 :installguide_loadbalancer_name: Setting Up a Load Balancer or Proxy
 :installguide_loadbalancer_link: {installguide_link}#_setting-up-a-load-balancer-or-proxy
-:installguide_truststore_name: Keycloak truststore
+:installguide_truststore_name: Aerobase truststore
 :installguide_truststore_link: {installguide_link}#_truststore
 :installguide_profile_name: Profiles
 :installguide_profile_link: {installguide_link}#profiles
@@ -122,6 +122,6 @@ endif::[]
 :subsystem_undertow_xml_urn: urn:jboss:domain:undertow:6.0
 :subsystem_infinispan_xml_urn: urn:jboss:domain:infinispan:6.0
 :subsystem_datasources_xml_urn: urn:jboss:domain:datasources:5.0
-:saml_adapter_xsd_urn: https://www.keycloak.org/schema/keycloak_saml_adapter_1_10.xsd
+:saml_adapter_xsd_urn: https://www.aerobase.io/schema/keycloak_saml_adapter_1_10.xsd
 :generic_adapter_name: keycloak-gatekeeper
-:generic_adapter_name_full: Keycloak Gatekeeper
+:generic_adapter_name_full: Aerobase Gatekeeper
