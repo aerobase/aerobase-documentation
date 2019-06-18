@@ -1,0 +1,37 @@
+== Admin REST API
+
+{project_name} comes with a fully functional Admin REST API with all features provided by the Admin Console.
+
+To invoke the API you need to obtain an access token with the appropriate permissions. The required permissions are described in
+{adminguide_link}[{adminguide_name}].
+
+A token can be obtained by enabling authenticating to your application with {project_name}; see the
+{adapterguide_link}[{adapterguide_name}]. You can also use direct access grant to obtain an access token.
+
+For complete documentation see {apidocs_link}[{apidocs_name}].
+=== Example using CURL
+
+Obtain access token for user in the realm `aerobase` with username `admin` and password `password`:
+[source,bash]
+----
+curl \
+  -d "client_id=admin-cli" \
+  -d "username=admin" \
+  -d "password=password" \
+  -d "grant_type=password" \
+  "http://localhost:8080/auth/realms/aerobase/protocol/openid-connect/token"
+----
+
+NOTE: By default this token expires in 1 minute
+
+The result will be a JSON document. To invoke the API you need to extract the value of the `access_token` property. You can then invoke the API by including
+the value in the `Authorization` header of requests to the API.
+
+The following example shows how to get the details of the aerobase realm:
+
+[source,bash]
+----
+curl \
+  -H "Authorization: bearer eyJhbGciOiJSUz..." \
+  "http://localhost:8080/auth/admin/realms/aerobase"
+----
