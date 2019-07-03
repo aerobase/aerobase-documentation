@@ -49,20 +49,9 @@ When extending a theme you can override individual resources (templates, stylesh
 need to update your custom template when upgrading to a new release.
 
 While creating a theme it's a good idea to disable caching as this makes it possible to edit theme resources directly from the `themes` directory without
-restarting {project_name}. To do this edit `standalone.xml`. For `theme` set `staticMaxAge` to `-1` and both
-`cacheTemplates` and `cacheThemes` to `false`:
+restarting {project_name}. Please see the {installguide_disabling_theme_caching_link}[Disable theme caching] section of this guide for more information
 
-[source,xml]
-----
-<theme>
-    <staticMaxAge>-1</staticMaxAge>
-    <cacheThemes>false</cacheThemes>
-    <cacheTemplates>false</cacheTemplates>
-    ...
-</theme>
-----
-
-Remember to re-enable caching in production as it will significantly impact performance.
+NOTE: Remember to re-enable caching in production as it will significantly impact performance.
 
 To create a new theme start by creating a new directory in the `themes` directory. The name of the directory becomes the name of the theme. For example to
 create a theme called `mytheme` create the directory `themes/mytheme`.
@@ -282,8 +271,7 @@ Themes can be deployed to {project_name} by copying the theme directory to `them
 theme to the `themes` directory, but in production you may want to consider using an `archive`. An `archive` makes it simpler to have a versioned copy of
 the theme, especially when you have multiple instances of {project_name} for example with clustering.
 
-To deploy a theme as an archive you need to create a JAR archive with the theme resources. You also need to add a file `META-INF/keycloak-themes.json` to the
-archive that lists the available themes in the archive as well as what types each theme provides.
+To deploy a theme as an archive you need to create a JAR archive with the theme resources.
 
 For example for the `mytheme` theme create `mytheme.jar` with the contents:
 
@@ -295,7 +283,7 @@ For example for the `mytheme` theme create `mytheme.jar` with the contents:
 * theme/mytheme/login/messages/messages_en.properties
 * theme/mytheme/email/messages/messages_en.properties
 
-The contents of `META-INF/keycloak-themes.json` in this case would be:
+The contents of `.json` in this case would be:
 
 [source,json]
 ----

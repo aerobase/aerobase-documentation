@@ -25,5 +25,11 @@ $ apt-get install aerobase_{project_version}_xenial.deb aerobase-iam_{project_ve
 ===== Windows
 [source,bash,subs=+attributes]
 ----
-> msiexec.exe aerobase-openjdk-{project_version}-x64.msi 
+> msiexec.exe /i aerobase-openjdk-{project_version}-x64.msi 
 ----
+[NOTE] 
+.Prerequisites
+====
+. Installing on windows require PowerShell 5.1+. 
+. Connecting to Microsoft SQL Server require 'sqlcmd' utility.
+====

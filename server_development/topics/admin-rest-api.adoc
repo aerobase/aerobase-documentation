@@ -9,6 +9,7 @@ A token can be obtained by enabling authenticating to your application with {pro
 {adapterguide_link}[{adapterguide_name}]. You can also use direct access grant to obtain an access token.
 
 For complete documentation see {apidocs_link}[{apidocs_name}].
+
 === Example using CURL
 
 Obtain access token for user in the realm `aerobase` with username `admin` and password `password`:

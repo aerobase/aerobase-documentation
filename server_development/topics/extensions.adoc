@@ -26,64 +26,7 @@ Object getResource();
 
 which allows you to return an object, which acts as a https://github.com/jax-rs[JAX-RS Resource]. For more details, see the Javadoc and our examples.
 There is a very simple example in the example distribution in `providers/rest` and there is a more advanced example in `providers/domain-extension`,
-which shows how to add an authenticated REST endpoint and other functionalities like <<_extensions_spi, Adding your own SPI>>
-or <<_extensions_jpa,Extending datamodel with your own JPA entities>>.
-
-For details on how to package and deploy a custom provider, refer to the <<_providers,Service Provider Interfaces>> chapter.
-
-[[_extensions_spi]]
-=== Add your own custom SPI
-
-This is useful especially with the <<_extensions_rest,Custom REST endpoints>>. To add your own kind of SPI, you need to
-implement the interface `org.keycloak.provider.Spi` and define the ID of your SPI and the `ProviderFactory` and `Provider` classes. That looks like this:
-
-[source,java]
-----
-package org.keycloak.examples.domainextension.spi;
-
-import ...
-
-public class ExampleSpi implements Spi {
-
-    @Override
-    public boolean isInternal() {
-        return false;
-    }
-
-    @Override
-    public String getName() {
-        return "example";
-    }
-
-    @Override
-    public Class<? extends Provider> getProviderClass() {
-        return ExampleService.class;
-    }
-
-    @Override
-    @SuppressWarnings("rawtypes")
-    public Class<? extends ProviderFactory> getProviderFactoryClass() {
-        return ExampleServiceProviderFactory.class;
-    }
-
-}
-
-----
-
-Then you need to create the file `META-INF/services/org.keycloak.provider.Spi` and add the class of your SPI to it. For example:
-
-[source]
-----
-org.keycloak.examples.domainextension.spi.ExampleSpi
-----
-
-The next step is to create the interfaces `ExampleServiceProviderFactory`, which extends from `ProviderFactory` and `ExampleService`, which extends from `Provider`.
-The `ExampleService` will usually contain the business methods you need for your use case. Note that the `ExampleServiceProviderFactory` instance
-is always scoped per application, however `ExampleService` is scoped per-request (or more accurately per `KeycloakSession` lifecycle).
-
-Finally you need to implement your providers in the same manner as described in the <<_providers,Service Provider Interfaces>> chapter.
-
-For more details, take a look at the example distribution at `providers/domain-extension`, which shows an Example SPI similar to the one above.
+which shows how to add an authenticated REST endpoint and other functionalities like <<_extensions_jpa,Extending datamodel with your own JPA entities>>.
 
 [[_extensions_jpa]]
 === Add custom JPA entities to the {project_name} data model

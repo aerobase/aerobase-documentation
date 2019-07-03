@@ -62,13 +62,14 @@ endif::[]
 :releasenotes_link: {project_doc_base_url}/release_notes/
 :openshift_link: {project_doc_base_url}/red_hat_single_sign-on_for_openshift/
 :installguide_name: Server Installation and Configuration Guide
-:installguide_link: {project_doc_base_url}/installation_and_configuration_guide/
+:installguide_link: {project_doc_base_url}/installation/
 :installguide_clustering_name: Clustering
 :installguide_clustering_link: {installguide_link}#_clustering
 :installguide_database_name: Database
 :installguide_database_link: {installguide_link}#_database
 :installguide_disablingcaching_name: Disabling caching
 :installguide_disablingcaching_link: {installguide_link}#disabling-caching
+:installguide_disabling_theme_caching_link: {installguide_link}#disabling-theme-caching
 :installguide_loadbalancer_name: Setting Up a Load Balancer or Proxy
 :installguide_loadbalancer_link: {installguide_link}#_setting-up-a-load-balancer-or-proxy
 :installguide_truststore_name: Aerobase truststore

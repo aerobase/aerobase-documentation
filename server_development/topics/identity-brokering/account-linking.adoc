@@ -47,34 +47,6 @@ hash::
   The token variable are obtained from the OIDC access token.  Basically you are hashing the random nonce, the user session id, the client id, and the identity
   provider alias you want to access.
 
-Here's an example of Java Servlet code that generates the URL to establish the account link.
-
-
-[source,java]
-----
-   KeycloakSecurityContext session = (KeycloakSecurityContext) httpServletRequest.getAttribute(KeycloakSecurityContext.class.getName());
-   AccessToken token = session.getToken();
-   String clientId = token.getIssuedFor();
-   String nonce = UUID.randomUUID().toString();
-   MessageDigest md = null;
-   try {
-      md = MessageDigest.getInstance("SHA-256");
-   } catch (NoSuchAlgorithmException e) {
-      throw new RuntimeException(e);
-   }
-   String input = nonce + token.getSessionState() + clientId + provider;
-   byte[] check = md.digest(input.getBytes(StandardCharsets.UTF_8));
-   String hash = Base64Url.encode(check);
-   request.getSession().setAttribute("hash", hash);
-   String redirectUri = ...;
-   String accountLinkUrl = KeycloakUriBuilder.fromUri(authServerRootUrl)
-                    .path("/auth/realms/{realm}/broker/{provider}/link")
-                    .queryParam("nonce", nonce)
-                    .queryParam("hash", hash)
-                    .queryParam("client_id", clientId)
-                    .queryParam("redirect_uri", redirectUri).build(realm, provider).toString();
-----
-
 Why is this hash included?  We do this so that the auth server is guaranteed to know that the client application initiated the request and no other rogue app
 just randomly asked for a user account to be linked to a specific provider.  The auth server will first check to see if the user is logged in by checking the SSO
 cookie set at login.  It will then try to regenerate the hash based on the current login and match it up to the hash sent by the application.

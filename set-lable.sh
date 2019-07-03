@@ -25,12 +25,15 @@ find . -type f -wholename "*pom.xml" ! -wholename "*set-lable.sh" ! -wholename "
 # Server Installation
 find . -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's|server_installation|installation|g'
 find . -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's|=server_installation|=installation|g'
+find . -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's|installation_and_configuration_guide|installation|g'
 find . -type f -wholename "*pom.xml" ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's|server_installation|installation|g'
 
 # Server Development
 sed -i '/events.adoc/,$d' server_development/topics.adoc
 sed -i '/ifeval/ d' server_development/topics.adoc
+sed -i '/providers/ d' server_development/topics.adoc
 find ./server_development -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" ! -wholename "*docinfo-footer.html*" ! -wholename "*header.adoc*" -print0 | xargs -0 sed -i 's/master/aerobase/g'
+rm -rf server_development/topics/providers*
 
 # README File
 sed -i 's/Keycloak/Aerobase/g' README.md

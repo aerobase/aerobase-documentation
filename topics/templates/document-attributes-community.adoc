@@ -2,12 +2,12 @@
 :project_name_full: Aerobase
 :project_community: true
 :project_product: false
-:project_version: 2.3.0
-:project_versionMvn: 2.3.0
-:project_versionNpm: 2.3.0
+:project_version: 2.3.2
+:project_versionMvn: 2.3.2
+:project_versionNpm: 2.3.2
 :project_versionDoc: 2.3
 :project_images: keycloak-images
-:project_doc_base_url: https://www.aerobase.io/docs/{project_versionDoc}
+:project_doc_base_url: https://www.aerobase.io/docs
 :project_dirref: KEYCLOAK_HOME
 :project_openshift_product_name: Aerobase for OpenShift
 
@@ -49,6 +49,7 @@
 :installguide_database_link: {installguide_link}#_database
 :installguide_disablingcaching_name: Disabling caching
 :installguide_disablingcaching_link: {installguide_link}#disabling-caching
+:installguide_disabling_theme_caching_link: {installguide_link}#disable-theme-caching
 :installguide_loadbalancer_name: Setting Up a Load Balancer or Proxy
 :installguide_loadbalancer_link: {installguide_link}#_setting-up-a-load-balancer-or-proxy
 :installguide_truststore_name: Aerobase truststore
