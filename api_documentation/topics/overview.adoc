@@ -1,0 +1,5 @@
+== {project_name} API Documentation
+
+=== Admin REST API Documentation
+
+{apidocs_adminrest_link}[{apidocs_adminrest_name}]

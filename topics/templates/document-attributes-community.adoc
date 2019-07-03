@@ -62,9 +62,9 @@
 :installguide_troubleshooting_link: {installguide_link}#troubleshooting
 
 :apidocs_javadocs_name: JavaDocs Documentation
-:apidocs_javadocs_link: https://www.aerobase.io/docs-api/{project_versionDoc}/javadocs/
+:apidocs_javadocs_link: https://docs.aerobase.io/apis/rest/
 :apidocs_adminrest_name: Administration REST API
-:apidocs_adminrest_link: https://www.aerobase.io/docs-api/{project_versionDoc}/rest-api/
+:apidocs_adminrest_link: https://docs.aerobase.io/apis/rest/
 
 :appserver_name: WildFly
 :appserver_dirref: WILDFLY_HOME

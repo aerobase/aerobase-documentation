@@ -5,7 +5,7 @@ find . -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholenam
 find . -type f -wholename "*document-attributes-*.adoc" ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's|Keycloak|Aerobase|g'
 find . -type f -wholename "*pom.xml" ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's|org.keycloak.documentation|org.aerobase.documentation|g'
 find . -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's|keycloak/keycloak-documentation|aerobase/aerobase-documentation|g'
-find . -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's|https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&components=12323375&issuetype=1&priority=3&description=File:%20{include_filename}|https://aerobase.atlassian.net/projects/AEROBASE/issues/AEROBASE-104?filter=allissues|g'
+find . -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's|https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&components=12323375&issuetype=1&priority=3&description=File:%20{include_filename}|https://aerobase.atlassian.net/projects/AEROBASE/issues/|g'
 
 # Aggregation Section 
 find aggregation/navbar* -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" -print0 | xargs -0 sed -i 's/004670/263c79/g'
@@ -48,7 +48,6 @@ rm -rf upgrading
 rm -rf openshift
 rm -rf server_installation
 rm -rf getting_started
-rm -rf api_documentation
 rm -rf authorization_services
 rm -rf securing_apps
 rm -rf server_admin
@@ -57,7 +56,6 @@ rm -rf tests
 sed -i '/upgrading/ d' pom.xml
 sed -i '/release_notes/ d' pom.xml
 sed -i '/openshift/ d' pom.xml
-sed -i '/api_documentation/ d' pom.xml
 sed -i '/authorization_services/ d' pom.xml
 sed -i '/securing_apps/ d' pom.xml
 sed -i '/server_admin/ d' pom.xml

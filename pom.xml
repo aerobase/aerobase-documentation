@@ -31,9 +31,10 @@
         <module>header-maven-plugin</module>
         <module>gsg</module>
         <module>installation</module>
-        <module>aggregation</module>
 	<module>server_development</module>
-  </modules>
+	<module>api_documentation</module>
+        <module>aggregation</module>
+    </modules>
 
     <profiles>
         <profile>
