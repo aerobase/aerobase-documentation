@@ -33,6 +33,8 @@
         <module>installation</module>
 	<module>server_development</module>
 	<module>api_documentation</module>
+	<module>server_admin</module>
+	<module>securing_apps</module>
         <module>aggregation</module>
     </modules>
 

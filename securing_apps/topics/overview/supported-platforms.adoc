@@ -1,0 +1,62 @@
+=== Supported Platforms
+
+==== OpenID Connect
+
+===== Java
+* <<_jboss_adapter,JBoss EAP>>
+ifeval::[{project_community}==true]
+  * <<_jboss_adapter,WildFly>>
+endif::[]
+* <<_fuse_adapter,Fuse>>
+ifeval::[{project_community}==true]
+  * <<_tomcat_adapter,Tomcat>>
+  * <<_jetty9_adapter,Jetty 9>>
+endif::[]
+
+* <<_servlet_filter_adapter,Servlet Filter>>
+* <<_spring_boot_adapter,Spring Boot>>
+
+ifeval::[{project_community}==true]
+  * <<_spring_security_adapter,Spring Security>>
+endif::[]
+
+===== JavaScript (client-side)
+* <<_javascript_adapter,JavaScript>>
+
+===== Node.js (server-side)
+* <<_nodejs_adapter,Node.js>>
+
+
+ifeval::[{project_community}==true]
+==== C#
+* https://github.com/dylanplecki/KeycloakOwinAuthentication[OWIN] (community)
+
+==== Python
+* https://pypi.org/project/oic/[oidc] (generic)
+
+==== Android
+* https://github.com/openid/AppAuth-Android[AppAuth] (generic)
+* https://github.com/aerogear/aerogear-android-authz[AeroGear] (generic)
+
+==== iOS
+* https://github.com/openid/AppAuth-iOS[AppAuth] (generic)
+* https://github.com/aerogear/aerogear-ios-oauth2[AeroGear] (generic)
+
+===== Apache HTTP Server
+* https://github.com/zmartzone/mod_auth_openidc[mod_auth_openidc]
+endif::[]
+
+==== SAML
+
+===== Java
+
+* <<_saml_jboss_adapter,JBoss EAP>>
+ifeval::[{project_community}==true]
+* <<_saml_jboss_adapter,WildFly>>
+* <<_tomcat_adapter,Tomcat>>
+* <<_jetty_saml_adapter,Jetty>>
+endif::[]
+
+===== Apache HTTP Server
+
+* <<_mod_auth_mellon,mod_auth_mellon>>

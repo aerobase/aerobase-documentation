@@ -1,0 +1,78 @@
+
+=== Password guess: brute force attacks
+
+A brute force attack happens when an attacker is trying to guess a user's password.
+{project_name} has some limited brute force detection capabilities.
+If turned on, a user account will be temporarily disabled if a threshold of login failures is reached.
+To enable this feature go to the `Realm Settings` left menu item, click on the `Security Defenses` tab, then additional
+go to the `Brute Force Detection` sub-tab.
+
+.Brute Force Detection
+image:{project_images}/brute-force.png[]
+
+There are 2 different configurations for brute force detection; permanent lockout and temporary lockout. Permanent lockout will disable a user's account after an attack is detected; the account will be disabled until an administrator renables it. Temporary lockout will disable a user's account for a time period after an attack is detected; the time period for which the account is disabled increases the longer the attack continues.
+
+*Common Parameters*
+====
+Max Login Failures::
+  Maximum number of login failures permitted. Default value is 30.
+Quick Login Check Milli Seconds::
+  Minimum time required between login attempts. Default is 1000.
+Minimum Quick Login Wait::
+  Minimum amount of time the user will be temporarily disabled if logins attempts are quicker than _Quick Login Check Milli Seconds_. Default is 1 minute.
+====
+
+*Temporary Lockout Parameters*
+====
+Wait Increment::
+  Amount of time added to the time a user is temporarily disabled after each time _Max Login Failures_ is reached. Default is 1 minute.
+Max Wait::
+  The maximum amount of time for which a user will be temporarily disabled. Default is 15 minutes.
+Failure Reset Time::
+  Time after which the failure count will be reset; timer runs from the last failed login. Default is 12 hours.
+====
+
+*Permanent Lockout Algorithm*
+====
+. On successful login
+.. Reset `count`
+. On failed login
+.. Increment `count`
+.. If `count` greater than _Max Login Failures_
+... Permanently disable user
+.. Else if time between this failure and the last failure is less than _Quick Login Check Milli Seconds_
+... Temporarily disable user for _Minimum Quick Login Wait_
+
+When a user is disabled they can not login until an administrator enables the user; enabling an account resets `count`.
+====
+
+*Temporary Lockout Algorithm*
+====
+. On successful login
+.. Reset `count`
+. On failed login
+.. If time between this failure and the last failure is greater than _Failure Reset Time_
+... Reset `count`
+.. Increment `count`
+.. Calculate `wait` using _Wait Increment_ * (`count` / _Max Login Failures_). The division is an integer division so will always be rounded down to a whole number
+.. If `wait` equals 0 and time between this failure and the last failure is less than _Quick Login Check Milli Seconds_ then set `wait` to _Minimum Quick Login Wait_ instead
+... Temporarily disable the user for the smaller of `wait` and _Max Wait_ seconds
+
+Login failures when a user is temporarily disabled do not increment `count`.
+====
+
+The downside of {project_name} brute force detection is that the server becomes vulnerable to denial of service attacks.
+An attacker can simply try to guess passwords for any accounts it knows and these account will be disabled.
+Eventually we will expand this functionality to take client IP address into account when deciding whether to block a user.
+
+A better option might be a tool like http://www.fail2ban.org/wiki/index.php/Main_Page[Fail2Ban].  You can point this service at the {project_name} server's log file.
+{project_name} logs every login failure and client IP address that had the failure.  Fail2Ban can be used to modify
+firewalls after it detects an attack to block connections from specific IP addresses.
+
+==== Password Policies
+
+Another thing you should do to prevent password guess is to have a complex enough password policy to ensure that
+users pick hard to guess passwords.  See the <<_password-policies, Password Policies>> chapter for more details.
+
+The best way to prevent password guessing though is to set up the server to use a one-time-password (OTP).
+

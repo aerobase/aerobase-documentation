@@ -1,0 +1,12 @@
+:toc:
+:toclevels: 3
+:numbered:
+:linkattrs:
+
+include::topics/templates/document-attributes-product.adoc[]
+
+:server_administration_guide:
+
+= {adminguide_name}
+
+include::topics.adoc[]

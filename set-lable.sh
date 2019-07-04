@@ -49,16 +49,12 @@ rm -rf openshift
 rm -rf server_installation
 rm -rf getting_started
 rm -rf authorization_services
-rm -rf securing_apps
-rm -rf server_admin
 rm -rf tests
 
 sed -i '/upgrading/ d' pom.xml
 sed -i '/release_notes/ d' pom.xml
 sed -i '/openshift/ d' pom.xml
 sed -i '/authorization_services/ d' pom.xml
-sed -i '/securing_apps/ d' pom.xml
-sed -i '/server_admin/ d' pom.xml
 sed -i '/tests/ d' pom.xml
 
 echo "successfully relabel to aerobase"

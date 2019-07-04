@@ -1,0 +1,78 @@
+[[_timeouts]]
+
+=== Session and Token Timeouts
+
+{project_name} gives you fine grain control of session, cookie, and token timeouts.  This is all done on the
+`Tokens` tab in the `Realm Settings` left menu item.
+
+.Tokens Tab
+image:{project_images}/tokens-tab.png[]
+
+Let's walk through each of the items on this page.
+
+|===
+|Configuration|Description
+
+|Revoke Refresh Token
+|For OIDC clients that are doing the refresh token flow, this flag, if on, will revoke that refresh token and issue another with the request that the client has to use.
+ This basically means that refresh tokens have a one time use.
+
+|SSO Session Idle
+|Also pertains to OIDC clients.  If the user is not active for longer than this timeout, the user session will be invalidated.  How is idle time checked?
+A client requesting authentication will bump the idle timeout.  Refresh token requests will also bump the idle timeout.
+There is a small window of time that is always added to the idle timeout before the session is actually invalidated (See note below).
+
+|SSO Session Max
+|Maximum time before a user session is expired and invalidated.  This is a hard number and time.  It controls the maximum time
+ a user session can remain active, regardless of activity.
+
+|SSO Session Idle Remember Me
+|Same as the standard SSO Session Idle configuration but specific to logins with remember me enabled. It allows for the specification of longer
+ session idle timeouts when remember me is selected during the login process. It is an optional configuration and if not set to a value
+ bigger than 0 it uses the same idle timeout set in the SSO Session Idle configuration.
+
+|SSO Session Max Remember Me
+|Same as the standard SSO Session Max but specific to logins with remember me enabled. It allows for the specification of longer lived
+ sessions when remember me is selected during the login process. It is an optional configuration and if not set to a value bigger than 0
+ it uses the same session lifespan set in the SSO Session Max configuration.
+
+|Offline Session Idle
+|For <<_offline-access, offline access>>, this is the time the session is allowed to remain idle before the offline token is revoked.
+There is a small window of time that is always added to the idle timeout before the session is actually invalidated (See note below).
+
+|Offline Session Max Limited
+|For <<_offline-access, offline access>>, if this flag is on, Offline Session Max is enabled to control the maximum time the offline token can remain active, regardless of activity.
+
+|Offline Session Max
+|For <<_offline-access, offline access>>, this is the maximum time before the corresponding offline token is revoked. This is a hard number and time. It controls the maximum time the offline token can remain active, regardless of activity.
+
+|Access Token Lifespan
+|When an OIDC access token is created, this value affects the expiration.
+
+|Access Token Lifespan For Implicit Flow
+|With the Implicit Flow no refresh token is provided. For this reason there's a separate timeout for access tokens created with the Implicit Flow.
+
+|Client login timeout
+|This is the maximum time that a client has to finish the Authorization Code Flow in OIDC.
+
+|Login timeout
+|Total time a login must take.  If authentication takes longer than this time then the user will have to start the authentication process over.
+
+|Login action timeout
+|Maximum time a user can spend on any one page in the authentication process.
+
+|User-Initiated Action Lifespan
+|Maximum time before an action permit sent by a user (e.g. forgot password e-mail) is expired. This value is recommended to be short because it is expected that the user would react to self-created action quickly.
+
+|Default Admin-Initiated Action Lifespan
+|Maximum time before an action permit sent to a user by an admin is expired. This value is recommended to be long to allow admins send e-mails for users that are currently offline. The default timeout can be overridden right before issuing the token.
+
+|Override User-Initiated Action Lifespan
+|Permits the possibility of having independent timeouts per operation (e.g. e-mail verification, forgot password, user actions and Identity Provider E-mail Verification). This field is non mandatory and if nothing is specified it defaults to the value configured at _User-Initiated Action Lifespan_.
+|===
+
+NOTE: For idle timeouts, there is a small window of time (2 minutes) during which the session is kept unexpired. For example, when you have
+timeout set to 30 minutes, it will be actually 32 minutes before the session is expired. This is needed for some corner-case scenarios in
+cluster and cross-datacenter environments, in cases where the token was refreshed on one cluster node for a very short time before the
+expiration and the other cluster nodes would in the meantime incorrectly consider the session as expired, because they had not yet received
+the message about successful refresh from the node which did the refresh.
