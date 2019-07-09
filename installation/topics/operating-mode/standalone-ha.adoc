@@ -26,7 +26,9 @@ deploy some type of load balancer in front of the cluster.  The <<_clustering,cl
 .cat aerobase.rb
 [source,ruby,subs="attributes+"]
 ----
-global['contactpoints'] = 'IP1, IP2'
+global['contactpoints'] = 'HOST1, HOST2'
+...
+aerobase_server['server_address'] = node['ipaddress'] 
 ----
 
 WARNING: Any changes you make to this file while the server is running will not take effect.
