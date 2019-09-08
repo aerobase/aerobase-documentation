@@ -35,6 +35,9 @@ sed -i '/providers/ d' server_development/topics.adoc
 find ./server_development -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" ! -wholename "*docinfo-footer.html*" ! -wholename "*header.adoc*" -print0 | xargs -0 sed -i 's/master/aerobase/g'
 rm -rf server_development/topics/providers*
 
+# Server Administration
+find ./server_admin -type f ! -wholename "*set-lable.sh" ! -wholename "*/\.git/*" ! -wholename "*/node_modules/*" ! -wholename "*docinfo-footer.html*" ! -wholename "*header.adoc*" -print0 | xargs -0 sed -i 's|http://localhost:8080/auth|http://localhost/auth/admin/aerobase/console|g'
+
 # README File
 sed -i 's/Keycloak/Aerobase/g' README.md
 sed -i 's/keycloak/aerobase/g' README.md

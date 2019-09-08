@@ -1,15 +1,6 @@
 
 == Admin Console
 
-The bulk of your administrative tasks will be done through the {project_name} Admin Console.
-You can go to the console url directly at http://localhost:8080/auth/admin/
-
-.Login Page
-image:{project_images}/login-page.png[]
-
-Enter the username and password you created on the Welcome Page or the `add-user-keycloak` script in the bin directory.
-This will bring you to the {project_name} Admin Console.
-
 .Admin Console
 image:{project_images}/admin-console.png[]
 

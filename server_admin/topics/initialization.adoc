@@ -8,49 +8,33 @@ This account will allow you to create an admin that can log into the _master_ re
 you can start creating realms, users and registering applications to be secured by {project_name}.
 
 If your
-server is accessible from `localhost`, you can boot it up and create this admin user by going to the http://localhost:8080/auth URL.
+server is accessible from `localhost`, you can boot it up and create this admin user by going to the http://localhost/auth/admin/aerobase/console URL.
 
 .Welcome Page
 image:{project_images}/initial-welcome-page.png[]
 
-Simply specify the username and password you want for this initial admin.
+Simply specify the username and password (admin/123) you want for this initial admin.
 
-If you cannot access the server via a `localhost` address, or just want to provision {project_name} from the command line
-you can do this with the `.../bin/add-user-keycloak` script.
+If you cannot access the server via a `localhost` address, or just want to activate {project_name} master from the command line
+you can do this with the `aerobase-ctl recover` script.
 
-.add-user-keycloak script
-image:{project_images}/add-user-script.png[]
-
-The parameters are a little different depending if you are using the standalone operation mode or domain operation mode.  For
-standalone mode, here is how you use the script.
+The parameters are a little different depending on your deployment OS. here is how you use the script.
 
 .Linux/Unix
 [source]
 ----
-$ .../bin/add-user-keycloak.sh -r master -u <username> -p <password>
+$ aerobase-ctl recover <password>
 ----
 
 .Windows
 [source]
 ----
-> ...\bin\add-user-keycloak.bat -r master -u <username> -p <password>
+> aerobase-ctl.bat recover <password>
 ----
-
-For domain mode, you have to point the script to one of your server hosts using the `-sc` switch.
-
-.Linux/Unix
-[source]
-----
-$ .../bin/add-user-keycloak.sh --sc domain/servers/server-one/configuration -r master -u <username> -p <password>
-----
-
-.Windows
-[source]
-----
-> ...\bin\add-user-keycloak.bat --sc domain/servers/server-one/configuration -r master -u <username> -p <password>
-----
-
-
-
-
+[NOTE]
+.Reboot
+====
+. Restart Aerobase server to activate master realm
+. Master realm is accessible from http://localhost/auth/admin/master/console
+====
 

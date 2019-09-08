@@ -53,7 +53,7 @@ For example, on
 +
 [options="nowrap"]
 ----
-$ kcadm.sh config credentials --server http://localhost:8080/auth --realm demo --user admin --client admin
+$ kcadm.sh config credentials --server http://localhost/auth/admin/aerobase/console --realm demo --user admin --client admin
 $ kcadm.sh create realms -s realm=demorealm -s enabled=true -o
 $ CID=$(kcadm.sh create clients -r demorealm -s clientId=my_client -s 'redirectUris=["http://localhost:8980/myapp/*"]' -i)
 $ kcadm.sh get clients/$CID/installation/providers/keycloak-oidc-keycloak-json
@@ -63,7 +63,7 @@ $ kcadm.sh get clients/$CID/installation/providers/keycloak-oidc-keycloak-json
 +
 [options="nowrap"]
 ----
-c:\> kcadm config credentials --server http://localhost:8080/auth --realm demo --user admin --client admin
+c:\> kcadm config credentials --server http://localhost/auth/admin/aerobase/console --realm demo --user admin --client admin
 c:\> kcadm create realms -s realm=demorealm -s enabled=true -o
 c:\> kcadm create clients -r demorealm -s clientId=my_client -s "redirectUris=[\"http://localhost:8980/myapp/*\"]" -i > clientid.txt
 c:\> set /p CID=<clientid.txt
@@ -98,7 +98,7 @@ Make sure the account used for the session has the proper permissions to invoke 
 There are two primary mechanisms for authentication. One mechanism uses [command]`kcadm config credentials` to start an authenticated session.
 [options="nowrap"]
 ----
-$ kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin --password admin
+$ kcadm.sh config credentials --server http://localhost/auth/admin/aerobase/console --realm master --user admin --password admin
 ----
 
 This approach maintains an authenticated session between the [command]`kcadm` command invocations by saving the obtained access token and the associated refresh token. It may also maintain other secrets in a private configuration file. See <<_working_with_alternative_configurations, next chapter>> for more information on the configuration file.
@@ -108,7 +108,7 @@ The second approach only authenticates each command invocation for the duration 
 For example, when performing an operation, we specify all the information required for authentication.
 [options="nowrap"]
 ----
-$ kcadm.sh get realms --no-config --server http://localhost:8080/auth --realm master --user admin --password admin
+$ kcadm.sh get realms --no-config --server http://localhost/auth/admin/aerobase/console --realm master --user admin --password admin
 ----
 
 Run the [command]`kcadm.sh help` command for more information on using the Admin CLI.
@@ -149,9 +149,9 @@ ENDPOINT is a target resource URI and can either be absolute (starting with `htt
 SERVER_URI/admin/realms/REALM/ENDPOINT
 ----
 
-For example, if you authenticate against the server http://localhost:8080/auth and realm is [filename]`master`, then using [filename]`users` as ENDPOINT results in the resource URL http://localhost:8080/auth/admin/realms/master/users.
+For example, if you authenticate against the server http://localhost/auth/admin/aerobase/console and realm is [filename]`master`, then using [filename]`users` as ENDPOINT results in the resource URL http://localhost/auth/admin/aerobase/console/admin/realms/master/users.
 
-If you set ENDPOINT to [filename]`clients`, the effective resource URI would be http://localhost:8080/auth/admin/realms/master/clients.
+If you set ENDPOINT to [filename]`clients`, the effective resource URI would be http://localhost/auth/admin/aerobase/console/admin/realms/master/clients.
 
 There is a [filename]`realms` endpoint that is treated slightly differently because it is the container for realms. It resolves to:
 [options="nowrap"]
@@ -171,11 +171,11 @@ SERVER_URI/admin/realms/TARGET_REALM/ENDPOINT
 For example,
 [options="nowrap"]
 ----
-$ kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin --password admin
+$ kcadm.sh config credentials --server http://localhost/auth/admin/aerobase/console --realm master --user admin --password admin
 $ kcadm.sh create users -s username=testuser -s enabled=true -r demorealm
 ----
 
-In this example, you start a session authenticated as the [filename]`admin` user in the [filename]`master` realm. You then perform a POST call against the resource URL [filename]`http://localhost:8080/auth/admin/realms/demorealm/users`.
+In this example, you start a session authenticated as the [filename]`admin` user in the [filename]`master` realm. You then perform a POST call against the resource URL [filename]`http://localhost/auth/admin/aerobase/console/admin/realms/demorealm/users`.
 
 The [command]`create` and [command]`update` commands send a JSON body to the server by default. You can use [filename]`-f FILENAME` to read a premade document from a file. When you can use [command]`-f -` option, the message body is read from standard input. You can also specify individual attributes and their values as seen in the previous [command]`create users` example. They are composed into a JSON body and sent to the server.
 
@@ -904,7 +904,7 @@ Note that response will be in `.zip` format.
 For example:
 [options="nowrap"]
 ----
-$ kcadm.sh get http://localhost:8080/auth/admin/realms/demorealm/clients/8f271c35-44e3-446f-8953-b0893810ebe7/installation/providers/docker-v2-compose-yaml -r demorealm > keycloak-docker-compose-yaml.zip
+$ kcadm.sh get http://localhost/auth/admin/aerobase/console/admin/realms/demorealm/clients/8f271c35-44e3-446f-8953-b0893810ebe7/installation/providers/docker-v2-compose-yaml -r demorealm > keycloak-docker-compose-yaml.zip
 ----
 
 [discrete]

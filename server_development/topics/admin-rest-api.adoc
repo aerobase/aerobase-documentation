@@ -20,7 +20,7 @@ curl \
   -d "username=admin" \
   -d "password=password" \
   -d "grant_type=password" \
-  "http://localhost:8080/auth/realms/aerobase/protocol/openid-connect/token"
+  "http://localhost/auth/admin/aerobase/console/realms/aerobase/protocol/openid-connect/token"
 ----
 
 NOTE: By default this token expires in 1 minute
@@ -34,5 +34,5 @@ The following example shows how to get the details of the aerobase realm:
 ----
 curl \
   -H "Authorization: bearer eyJhbGciOiJSUz..." \
-  "http://localhost:8080/auth/admin/realms/aerobase"
+  "http://localhost/auth/admin/aerobase/console/admin/realms/aerobase"
 ----
