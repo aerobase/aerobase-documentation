@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "askForPassword": false,
+            "connectionTimeout": 3,
+            "database": "keycloak_server",
+            "dialect": "PostgreSQL",
+            "name": "aerobase_docker",
+            "password": "keycloak_server",
+            "port": 5432,
+            "server": "172.18.0.2",
+            "username": "keycloak_server"
+        }
+    ]
+}

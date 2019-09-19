@@ -2,6 +2,7 @@
 
 === Create a New Realm
 
+To create a realm, you must first enable the master realm. 
 Creating a new realm is very simple.
 Mouse over the top left corner drop down menu that is titled with `Master`.  If you are logged in the master realm
 this drop down menu lists all the realms created.  The last entry of this drop down menu is always `Add Realm`.  Click

@@ -22,12 +22,6 @@
         </dependency>
         <dependency>
             <groupId>org.aerobase.documentation</groupId>
-            <artifactId>authorization-services</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.aerobase.documentation</groupId>
             <artifactId>gsg</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
@@ -53,13 +47,7 @@
         <dependency>
             <groupId>org.aerobase.documentation</groupId>
             <artifactId>installation</artifactId>
-            <version>${project.version}</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.aerobase.documentation</groupId>
-            <artifactId>release-notes</artifactId>
-            <version>${project.version}</version>
+	    <version>${project.version}</version>
             <type>pom</type>
         </dependency>
     </dependencies>

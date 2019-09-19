@@ -1,20 +1,14 @@
 
 === The Master Realm
 
+By default, Aerobase disables access to the master realm. For beginners, we recommend that you skip this section, and do not use the _master_ realm to manage the users and applications in your organization. 
+
+Reserve use of the _master_ realm for _super_ admins to create and manage the realms in your system. Following this security model helps prevent accidental changes and follows the tradition of permitting user accounts access to only those privileges and powers necessary for the successful completion of their current task.
+
 Once you execute `aerobase-ctl.bat recover` and boot {project_name} for the first time 
-{project_name} creates a pre-defined realm for you. This initial realm is the _master_ realm. It is the
-highest level in the hierarchy of realms. Admin accounts in this realm have
-permissions to view and manage any other realm created on the server instance.
-When you define your initial admin account, you create an account in the
+{project_name} creates a pre-defined realm for you. This initial realm is the _master_ realm. It is the highest level in the hierarchy of realms. Admin accounts in this realm have permissions to view and manage any other realm created on the server instance. When you define your initial admin account, you create an account in the
 _master_ realm. Your initial login to the admin console will also be via the
 _master_ realm.
-
-We recommend that you do not use the _master_ realm to manage the users
-and applications in your organization. Reserve use of the _master_ realm for
-_super_ admins to create and manage the realms in your system. Following this
-security model helps prevent accidental changes and follows the tradition
-of permitting user accounts access to only those privileges and powers necessary
-for the successful completion of their current task.
 
 It is possible to disable the _master_ realm and define admin accounts within
 each individual new realm you create. Each realm has its own dedicated Admin

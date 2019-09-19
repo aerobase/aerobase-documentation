@@ -143,50 +143,7 @@ You need to build {project_name} from sources and then run the Kerberos server w
 See details https://github.com/keycloak/keycloak/blob/master/docs/tests.md#kerberos-server[here] .
 endif::[]
 
-==== Credential Delegation
 
-Kerberos 5 supports the concept of credential delegation.  In this scenario, your applications may want access to the Kerberos ticket so that
-they can re-use it to interact with other services secured by Kerberos.  Since the SPNEGO protocol is processed in the {project_name} server,
-you have to propagate the GSS credential to your application
-within the  OpenID Connect token claim or a SAML assertion attribute that is transmitted to your application from the {project_name} server.
-To have this claim inserted into the token or assertion, each application will need to enable the built-in protocol mapper called `gss delegation credential`.
-This is enabled in the `Mappers` tab of the application's
-client page.  See <<_protocol-mappers, Protocol Mappers>> chapter for more details.
-
-Applications will need to deserialize the claim it receives from {project_name} before it can use it to make GSS calls against other services.
-Once you deserialize the credential from the access token to the GSSCredential object, the GSSContext will need to be created with this credential
-passed to the method `GSSManager.createContext` for example like this:
-
-[source,java]
-----
-// Obtain accessToken in your application.
-KeycloakPrincipal keycloakPrincipal = (KeycloakPrincipal) servletReq.getUserPrincipal();
-AccessToken accessToken = keycloakPrincipal.getKeycloakSecurityContext().getToken();
-
-// Retrieve kerberos credential from accessToken and deserialize it
-String serializedGssCredential = (String) accessToken.getOtherClaims().
-    get(org.keycloak.common.constants.KerberosConstants.GSS_DELEGATION_CREDENTIAL);
-
-GSSCredential deserializedGssCredential = org.keycloak.common.util.KerberosSerializationUtils.
-    deserializeCredential(serializedGssCredential);
-
-// Create GSSContext to call other kerberos-secured services
-GSSContext context = gssManager.createContext(serviceName, krb5Oid,
-    deserializedGssCredential, GSSContext.DEFAULT_LIFETIME);
-----
-
-ifeval::[{project_community}==true]
-We have an example, that shows this in detail.
-It's in `examples/kerberos` in the {project_name} example distribution or demo distribution download.
-You can also check the example sources directly https://github.com/keycloak/keycloak/tree/master/examples/kerberos[here] .
-endif::[]
-
-
-Note that you also need to configure `forwardable` kerberos tickets in `krb5.conf` file and add support for delegated credentials to your browser.
-
-WARNING: Credential delegation has some security implications so only use it if you really need it.
-         It's highly recommended to use it together with HTTPS.
-         See for example http://www.microhowto.info/howto/configure_firefox_to_authenticate_using_spnego_and_kerberos.html[this article] for more details.
 
 ==== Cross-realm trust
 
@@ -234,6 +191,11 @@ future versions and provide some more flexible mappings from Kerberos principals
 If you have issues, we recommend that you enable additional logging to debug the problem:
 
 * Enable `Debug` flag in admin console for Kerberos or LDAP federation providers
-* Enable TRACE logging for category `org.keycloak` in logging section of `standalone/configuration/standalone.xml` to receive more info `standalone/log/server.log`
-* Add system properties `-Dsun.security.krb5.debug=true` and `-Dsun.security.spnego.debug=true`
+* Enable Kerberos logging: 
+** For Windows OS, update the file: `C:\Aerobase\Runtime\unifiedpush-server\bin\standalone.conf.bat`
+*** Update JAVA_OPTS 
+`set "JAVA_OPTS=%JAVA_OPTS% -Djboss.bind.address.private=10.142.0.4 -Dsun.security.krb5.debug=true -Dsun.security.spnego.debug=true -Dspring.profiles.active=default"`` 
+** For Linux OS, update the file: `/var/opt/unifiedpush/unifiedpush-server/bin/standalone.conf``
+*** Update JAVA_OPTS 
+`JAVA_OPTS="$JAVA_OPTS -Djboss.bind.address.private=172.17.0.6 -Dspring.profiles.active=default -Dsun.security.krb5.debug=true -Dsun.security.spnego.debug=true" ``
 
