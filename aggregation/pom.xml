@@ -52,7 +52,7 @@
         </dependency>
         <dependency>
             <groupId>org.aerobase.documentation</groupId>
-            <artifactId>server-installation</artifactId>
+            <artifactId>installation</artifactId>
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>

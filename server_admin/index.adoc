@@ -5,7 +5,7 @@
 
 include::topics/templates/document-attributes-community.adoc[]
 
-:server_administration_guide:
+:server_admin_guide:
 
 = {adminguide_name}
 

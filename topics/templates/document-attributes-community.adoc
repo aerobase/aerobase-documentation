@@ -2,9 +2,9 @@
 :project_name_full: Aerobase
 :project_community: true
 :project_product: false
-:project_version: 2.3.2
-:project_versionMvn: 2.3.2
-:project_versionNpm: 2.3.2
+:project_version: 2.3.6
+:project_versionMvn: 2.3.6
+:project_versionNpm: 2.3.6
 :project_versionDoc: 2.3
 :project_images: aerobase-images
 :project_doc_base_url: https://www.aerobase.io/docs
