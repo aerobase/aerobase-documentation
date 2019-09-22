@@ -17,6 +17,22 @@ postgresql['username'] = "USER_NAME"
 postgresql['password'] = "PASSWORD"
 ----
 
+==== Connecting to MYSQL
+[source,ruby,subs="attributes+"]
+----
+# Shutdown internal embedded database
+postgresql['enable'] = false
+
+# Change adapter type
+aerobase_server['db_adapter'] = "mysql"
+
+# Point to MYSQL host and port (default 3306)
+mysql['server'] = "localhost"
+mysql['username'] = "root"
+mysql['password'] = "password"
+----
+NOTE: Make sure MySQL shell is installed and configured to PATH.
+
 ==== Connecting to MSSQL
 [source,ruby,subs="attributes+"]
 ----
