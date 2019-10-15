@@ -1,7 +1,7 @@
 
 === Configuring the external URL
 
-In order for Aerobase to properly validete oauth requests it needs to know the URL under which it is reached by your users, e.g. 
+In order for Aerobase to properly validate oauth requests it needs to know the URL under which it is reached by your users, e.g. 
 `http://idp.aerobase.com`. Add or edit the following line in `/etc/aerobase/aerobase.rb`:
 
 [source,ruby,subs="attributes+"]
