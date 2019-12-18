@@ -18,9 +18,11 @@
 :authorizationguide_name: Authorization Services Guide
 :authorizationguide_link: {project_doc_base_url}/authorization_services/
 :adapterguide_name: Securing Applications and Services Guide
+:adapterguide_name_short: Securing Apps
 :adapterguide_link: {project_doc_base_url}/securing_apps/
 :adapterguide_logout_link: {adapterguide_link}#_java_adapter_logout
 :adminguide_name: Server Administration Guide
+:adminguide_name_short: Server Administration
 :adminguide_link: {project_doc_base_url}/server_admin/
 :adminguide_bruteforce_name: Password guess: brute force attacks
 :adminguide_bruteforce_link: {adminguide_link}#password-guess-brute-force-attacks
@@ -31,10 +33,12 @@
 :apidocs_name: API Documentation
 :apidocs_link: {project_doc_base_url}/api_documentation/
 :developerguide_name: Server Developer Guide
+:developerguide_name_short: Server Developer
 :developerguide_link: {project_doc_base_url}/server_development/
 :developerguide_actiontoken_name: Action Token SPI
 :developerguide_actiontoken_link: {developerguide_link}#_action_token_spi
 :gettingstarted_name: Getting Started Guide
+:gettingstarted_name_short: Getting Started
 :gettingstarted_link: {project_doc_base_url}/gsg/
 :upgradingguide_name: Upgrading Guide
 :upgradingguide_link: {project_doc_base_url}/upgrading/
@@ -42,6 +46,7 @@
 :releasenotes_link: {project_doc_base_url}/release_notes/
 
 :installguide_name: Server Installation and Configuration Guide
+:installguide_name_short: Server Installation
 :installguide_link: {project_doc_base_url}/installation/
 :installguide_clustering_name: Clustering
 :installguide_clustering_link: {installguide_link}#_clustering

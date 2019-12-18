@@ -1,6 +1,6 @@
-:toc:
+:toc: left
 :toclevels: 3
-:numbered:
+:sectanchors:
 :linkattrs:
 
 include::topics/templates/document-attributes-community.adoc[]
@@ -8,5 +8,8 @@ include::topics/templates/document-attributes-community.adoc[]
 :server_developer_guide:
 
 = {developerguide_name}
+
+:release_header_guide: {developerguide_name_short}
+include::topics/templates/release-header.adoc[]
 
 include::topics.adoc[]
