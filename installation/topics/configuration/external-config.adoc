@@ -6,4 +6,4 @@ The reason for strict permissions and ownership is that `/etc/aerobase/aerobase.
 This means that users who have write access to `/etc/aerobase/aerobase.rb` can add configuration that will be executed as code by root.
 
 You can include an external configuration file `overrides.rb` inside `/etc/aerobase/`.
-Any configuration that is set in `/etc/aerobase/aerobase.rb` will take precedence over the configuration from the included overrides.rb file.
+Any configuration that is set in `/etc/aerobase/overrides.rb` will take precedence over the configuration from the included aerobase.rb file.
