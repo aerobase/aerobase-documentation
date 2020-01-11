@@ -2,4 +2,4 @@
 == Configuration Options
 
 Aerobase Server is configured by setting relevant options in `/etc/aerobase/aerobase.rb`. 
-For a complete list of available options, visit the link:{https://github.com/aerobase/omnibus-aerobase-server/blob/master/config/templates/aerobase-config-template/aerobase.rb.template.erb}[aerobase.rb.template].
+For a complete list of available options, visit the https://github.com/aerobase/omnibus-aerobase-server/blob/master/config/templates/aerobase-config-template/aerobase.rb.template.erb[aerobase.rb.template].
